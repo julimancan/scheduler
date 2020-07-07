@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import InterviewerListItem from "./InterviewerListItem"
 import "components/InterviewerList.scss";
 import classNames from 'classnames';
 
 
+const InterviewerList = props => {
+  const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
-export default function InterviewerList(props) {
-  const interviewer = props.Interviewers.map(Interviewer => {
+
     return (
-     <InterviewerListItem 
-     interviewers={interviewers}
-     interviewer={3}
-     setInterviewer={action("setInterviewer")}
-
-     />
+     <section className={"interviewers"}>
+       <h4 className="interviewers__header">Interviewer</h4>
+       <ul className="interviewers__list">
+        {props.interviewers.map(interviewer => 
+         <InterviewerListItem 
+          name={interviewer.name}
+          avatar={interviewer.avatar}
+          selected={interviewer.id === props.value}
+          setInterviewer={event => props.setInterviewer(interviewer.id)}
+         />)}
+       </ul>
+     </section>
     )
-  })
-  return <ul>{interviewer}</ul>
 }
+
+export default InterviewerList;
