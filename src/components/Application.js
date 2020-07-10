@@ -70,23 +70,7 @@ const interviewer = {
   avatar: "https://i.imgur.com/LpaY82x.png"
 };
 
-// const days = [
-//   {
-//     id: 1,
-//     name: "Monday",
-//     spots: 2,
-//   },
-//   {
-//     id: 2,
-//     name: "Tuesday",
-//     spots: 5,
-//   },
-//   {
-//     id: 3,
-//     name: "Wednesday",
-//     spots: 0,
-//   },
-// ];
+
 let appointment = []
 
 export default function Application(props) {

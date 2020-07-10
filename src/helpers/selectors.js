@@ -25,10 +25,9 @@ export function getInterview(state, day) {
   const interviewers = state.interviewers;
   if(day && interviewers[day.interviewer]) {
     const interviewWithData = {...day, interviewer: interviewers[day.interviewer] }
-    console.log(interviewWithData, "interviewer exists!!!!!!!!!!!!!!!!!!!!!!!!!")
      return interviewWithData;
   } else {
-    return null
+    return null;
   }
   
   const expectedOutput = {  
