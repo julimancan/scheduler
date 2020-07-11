@@ -13,7 +13,9 @@ const InterviewerList = props => {
        <h4 className="interviewers__header">Interviewer</h4>
        <ul className="interviewers__list">
         {props.interviewers.map(interviewer => 
+        // console.log(interviewer)
          <InterviewerListItem 
+          key={interviewer.id}
           name={interviewer.name}
           avatar={interviewer.avatar}
           selected={interviewer.id === props.value}
