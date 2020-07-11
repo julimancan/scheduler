@@ -57,6 +57,11 @@ export default function Appointment(props) {
 			/>
 		)}
 
+{mode === SAVING && (
+			<Status 
+			message="Saving"
+			/>
+)}
 		{/* {props.interview ? <Show
 
 			student={props.interview.student}

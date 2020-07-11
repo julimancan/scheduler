@@ -26,7 +26,7 @@ export default function Form(props) {
   // }
 
  
-  const onSubmit = () => props.save(name, interviewer); 
+  const onSubmit = () => props.onSave(name, interviewer); 
 
   return (
     <main className="appointment__card appointment__card--create">

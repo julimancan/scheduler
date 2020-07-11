@@ -31,8 +31,8 @@ export function getInterviewersForDay(state, day) {
     return [];
   }
   // debugger
-  console.log('-----------------////////////////-----state', state);
-  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>filteredDay', filteredDay);
+  // console.log('-----------------////////////////-----state', state);
+  // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>filteredDay', filteredDay);
   
   return filteredDay.interviewers.map(id => state.interviewers[id]);
 };
