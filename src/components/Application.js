@@ -134,6 +134,9 @@ export default function Application(props) {
       axios.delete(`/api/appointments/${id}`)
       .then(setState({ ...state, appointments })
       )
+      .catch((error) => {
+        return Promise.reject(error);
+      })
     );
   };
 
