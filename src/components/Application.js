@@ -87,15 +87,14 @@ export default function Application(props) {
  
 
 
-  // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>", state)
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyinterviewers = getInterviewersForDay(state, state.day);
-
+  
+  
 
   
- 
-
   const schedule = dailyAppointments.map(appointment => {
+     
     const interview = getInterview(state, appointment.interview);
     return (
       <Appointment
@@ -106,6 +105,7 @@ export default function Application(props) {
         interviewers={dailyinterviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
+        state={state}
       />
     );
   });
@@ -125,7 +125,7 @@ export default function Application(props) {
         <DayList
           days={state.days}
           day={state.day}
-          setDay={setDay}
+          setDay={setDay}       
         />
         </nav>
         <img

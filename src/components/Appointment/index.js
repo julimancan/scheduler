@@ -24,16 +24,17 @@ export default function Appointment(props) {
 	const { mode, transition, back } = useVisualMode(
 		props.interview ? SHOW : EMPTY
 	);
-
+		
 	function save(name, interviewer) {
 		const interview = {
 			student: name,
 			interviewer
 		};
+		
+		// props.spots
 		transition(SAVING)
 		props.bookInterview(props.id, interview)
-			.then(() => transition(SHOW)
-			)
+			.then(() => transition(SHOW))
 			.catch(err => transition(ERROR_SAVE, true))
 	}
 
@@ -49,6 +50,22 @@ export default function Appointment(props) {
 			.catch(err => transition(ERROR_DELETE, true))
 	}
 
+	// const formatSpots = (props) => {
+	// 	//  return props.spots === 0 ? "no spots remaining" :
+	// 	//  props.spots === 1 ? "1 spot remaining": 
+	// 	//  `${props.spots} spots remaining`
+		
+	// 		if (props.spots === 0 ) {
+	// 			return "no spots remaining"
+	// 		} else if (props.spots === 1) {
+	// 		 return "1 spot remaining" 
+	// 		} else {
+	// 			return `${props.spots} spots remaining`
+	// 		} 
+			
+	// 	}
+
+		// console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", props.state)
 	return <article className="appointment">
 
 		<Header time={props.time} />
@@ -66,7 +83,7 @@ export default function Appointment(props) {
 			<Form
 				name={props.name ? props.name : ""}
 				onCancel={back}
-				onSave={save}
+				onSave={save} 
 				interviewers={props.interviewers}
 			/>
 		)}
