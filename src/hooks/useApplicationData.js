@@ -16,8 +16,6 @@ export default function useApplicationData(props) {
 
     Promise.all([getDays, getAppointments, getInterviewers])
       .then((all) => {
-        // debugger
-        // console.log('---------', getInterviewers)
         setState((prev) => ({
           ...prev,
           days: all[0].data,
@@ -41,7 +39,6 @@ export default function useApplicationData(props) {
   const setDay = (day) => setState((prev) => ({ ...prev, day }));
 
   function bookInterview(id, interview) {
-    // console.log('==========================>', id, interview);
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },

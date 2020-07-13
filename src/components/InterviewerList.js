@@ -1,27 +1,21 @@
 import React, { useState } from "react";
 import InterviewerListItem from "./InterviewerListItem";
 import "components/InterviewerList.scss";
-import classNames from "classnames";
-import PropTypes from 'prop-types';
-
-
+import PropTypes from "prop-types";
 
 const InterviewerList = (props) => {
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
-
   InterviewerList.propTypes = {
     value: PropTypes.number,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
   };
-
 
   return (
     <section className={"interviewers"}>
       <h4 className="interviewers__header">Interviewer</h4>
       <ul className="interviewers__list">
         {props.interviewers.map((interviewer) => (
-          // console.log(interviewer)
           <InterviewerListItem
             key={interviewer.id}
             name={interviewer.name}
@@ -34,7 +28,5 @@ const InterviewerList = (props) => {
     </section>
   );
 };
-
-
 
 export default InterviewerList;
