@@ -9,6 +9,8 @@ export default function useApplicationData(props) {
     interviewer: {},
   });
 
+  const setDay = (day) => setState((prev) => ({ ...prev, day }));
+
   useEffect(() => {
     const getDays = axios.get("/api/days");
     const getAppointments = axios.get("/api/appointments");
@@ -35,8 +37,6 @@ export default function useApplicationData(props) {
       })
       .catch((err) => Promise.reject(err));
   }
-
-  const setDay = (day) => setState((prev) => ({ ...prev, day }));
 
   function bookInterview(id, interview) {
     const appointment = {
