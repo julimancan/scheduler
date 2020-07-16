@@ -3,8 +3,6 @@ import React from "react";
 import { render, cleanup, waitForElement, fireEvent, getByText, prettyDOM, getAllByTestId, getByAltText, getByPlaceholderText, queryByText, queryByAltText } from "@testing-library/react";
 
 import Application from "components/Application";
-import { element } from "prop-types";
-import Button from "components/Button";
 import axios from "axios";
 
 afterEach(cleanup);
@@ -27,7 +25,6 @@ describe("Application", () => {
 
     const appointments = getAllByTestId(container, "appointment");
     const appointment = appointments[0];
-    // console.log(prettyDOM(appointment));
 
     fireEvent.click(getByAltText(appointment, "Add"));
 
@@ -41,8 +38,6 @@ describe("Application", () => {
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
 
     const day = getAllByTestId(container, "day").find(day => queryByText(day, "Monday"));
-    // console.log("Day Dom", prettyDOM(day));
-    // expect(getByText(appointment, "no spots remaining")).toBeInTheDocument();
   });
 
   it("loads data and cancels an interview", async () => {
@@ -67,15 +62,12 @@ describe("Application", () => {
     // 7. Wait until the element with the "Add" button is displayed.
     await waitForElement(() => getByAltText(appointment, "Add"));
     expect(getByAltText(appointment, "Add")).toBeInTheDocument();
-    // debug();
   }); 
   
   it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
     // 1. Render the Application.
     const { container, debug } = render(<Application />);
-    // console.log(Application)
 
-    // debug();
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
 
@@ -112,7 +104,6 @@ describe("Application", () => {
 
     const appointments = getAllByTestId(container, "appointment");
     const appointment = appointments[0];
-    // console.log(prettyDOM(appointment));
 
     fireEvent.click(getByAltText(appointment, "Add"));
 
